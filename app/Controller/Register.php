@@ -1,10 +1,6 @@
 <?php
 
-header('Access-Control-Allow-Origin: http://localhost:3000');
-header('Access-Control-Allow-Credentials: true');
-header('Access-Control-Allow-Headers: Origin, Content-Type , authorization');
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-
+require('../Headers.php');
 
 $username = isset($_POST['username']) ? $_POST['username'] : NULL;
 $password = isset($_POST['password']) ? $_POST['password'] : NULL;
