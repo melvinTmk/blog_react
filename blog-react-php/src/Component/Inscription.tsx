@@ -19,39 +19,38 @@ export default function Inscription({setID, setError}:FormPropsInterface) {
         setPassWordInput(value);
     }  
     const handleSubmitForm = (e: any) => {
-        e.preventDefault();
-        
-        const params = `username=${passWordInput}&password=${userNameInput}`;
+      e.preventDefault();
+      const params = `username=${passWordInput}&password=${userNameInput}`;
 
-    const headers = new Headers({ 
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': `Basic ${btoa('username:password')}`
-    });
+      const headers = new Headers({ 
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': `Basic ${btoa('username:password')}`
+      });
 
-    fetch('http://localhost:2345/Controller/Register.php', {
-      method: 'POST',
-      body: params,
-      headers: headers,
-      mode: 'cors',
-      credentials: 'include'
-    }) 
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-        if(!data.error) {
-          setID({username: data.username, password: data.password, token: data.token});
-          setError('');
-          document.cookie = `token=${data.token};`;
-        } else {
-          setError(data.error);
+      fetch('http://localhost:2345/Controller/Register.php', {
+        method: 'POST',
+        body: params,
+        headers: headers,
+        mode: 'cors',
+        credentials: 'include'
+      }) 
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          console.log(data);
+          if(!data.error) {
+            setID({username: data.username, password: data.password, token: data.token});
+            setError('');
+            document.cookie = `token=${data.token};`;
+            location.reload();
+          } else {
+            setError(data.error);
+          }
         }
-      }
-    )
-    
-    }
-
+      )  
+    } 
+ 
     return (
         <form className="form-inscription" onSubmit={handleSubmitForm}>
             <div className="form-inscription-options">

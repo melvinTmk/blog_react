@@ -5,21 +5,22 @@ interface FormPropsInterface {
     setError: React.Dispatch<any>
 }
 
-export default function Home({user_props}) {
+export default function Home({user_props}:any) {
 
   
   const handleDeco = (e: any) => {
-    e.preventDefault();
-    document.cookie = `token=;`;
+    document.cookie = `token=;`; 
+    location.reload();
   }
 
-    return (
-      <div>
-        <h1>Hello {user_props.username}</h1>
-            <button className="deco-btn" 
-            onClick={handleDeco}
-                    >Deconnection
-            </button>
-      </div>
-    )
-}
+  console.log(user_props);
+  return (
+    <div>
+      <h1>Hello {user_props.username}</h1>
+          <button className="deco-btn" 
+          onClick={handleDeco}
+                  >Deconnection
+          </button>
+    </div>
+  )
+}   

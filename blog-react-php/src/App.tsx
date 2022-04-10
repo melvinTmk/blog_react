@@ -3,7 +3,7 @@ import Inscription from './Component/Inscription';
 import './App.css';
 import Home from './Component/Home';
 
-function getCookie(cname) {
+function getCookie(cname: string) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
@@ -24,8 +24,8 @@ function App() {
   const [error, setError] = useState<string>('');  
 
 
-  console.log(getCookie('token')); 
   if(getCookie('token') && getCookie('token') != "") {
+    console.log(getCookie('token'));
     return (
       <Home user_props={id}></Home>
     )
