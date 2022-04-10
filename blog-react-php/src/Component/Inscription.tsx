@@ -65,7 +65,7 @@ export default function Inscription({setID, setError}:FormPropsInterface) {
             </input>
             </div>
             <div className="form-inscription-options">
-            <label>Last name:</label>
+            <label>Password:</label>
             <input type="text" 
                     className="form-inscription-lname" 
                     name="lname" 

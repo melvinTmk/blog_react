@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Inscription from './Component/Inscription';
 import './App.css';
+import Home from './Component/Home';
 
 function getCookie(cname) {
   let name = cname + "=";
@@ -19,13 +20,15 @@ function getCookie(cname) {
 }
 
 function App() {
-  const [id, setID] = useState<Object>({});
+  const [id, setID] = useState<Object>({}); 
   const [error, setError] = useState<string>('');  
 
 
-  if(getCookie('token')) {
-    console.log('test');
-    //return <Home></Home>
+  console.log(getCookie('token')); 
+  if(getCookie('token') && getCookie('token') != "") {
+    return (
+      <Home user_props={id}></Home>
+    )
   }
   return (
     <div className="App">
@@ -33,7 +36,7 @@ function App() {
       
       <p className='error-msg'>{error}</p>
     </div>
-  )
-}
+  ) 
+}   
 
 export default App;
