@@ -23,9 +23,6 @@ function App() {
   const [id, setID] = useState<Object>({}); 
   const [error, setError] = useState<string>('');  
 
-
-    console.log(id);  
-    console.log(getCookie('username'));  
   if(getCookie('token') && getCookie('token') != "") {
     return (
       <Home username={getCookie('username')}></Home>

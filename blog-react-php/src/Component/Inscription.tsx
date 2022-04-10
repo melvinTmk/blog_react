@@ -20,7 +20,7 @@ export default function Inscription({setID, setError}:FormPropsInterface) {
     }  
     const handleSubmitForm = (e: any) => {
       e.preventDefault();
-      const params = `username=${passWordInput}&password=${userNameInput}`;
+      const params = `username=${userNameInput}&password=${passWordInput}`;
 
       const headers = new Headers({ 
         'Content-Type': 'application/x-www-form-urlencoded',
