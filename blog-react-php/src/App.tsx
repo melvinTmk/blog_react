@@ -24,12 +24,13 @@ function App() {
   const [error, setError] = useState<string>('');  
 
 
+    console.log(id);  
+    console.log(getCookie('username'));  
   if(getCookie('token') && getCookie('token') != "") {
-    console.log(getCookie('token'));
     return (
-      <Home user_props={id}></Home>
+      <Home username={getCookie('username')}></Home>
     )
-  }
+  } 
   return (
     <div className="App">
       <Inscription setID={setID} setError={setError}></Inscription>

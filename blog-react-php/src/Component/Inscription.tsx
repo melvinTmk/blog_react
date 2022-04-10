@@ -40,9 +40,10 @@ export default function Inscription({setID, setError}:FormPropsInterface) {
         .then(data => {
           console.log(data);
           if(!data.error) {
-            setID({username: data.username, password: data.password, token: data.token});
+            setID(data);
             setError('');
-            document.cookie = `token=${data.token};`;
+            document.cookie = `token=${data.token};`
+            document.cookie = `username=${data.username};`;
             location.reload();
           } else {
             setError(data.error);

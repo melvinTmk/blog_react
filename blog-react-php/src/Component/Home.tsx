@@ -5,7 +5,7 @@ interface FormPropsInterface {
     setError: React.Dispatch<any>
 }
 
-export default function Home({user_props}:any) {
+export default function Home({username}:any) {
 
   
   const handleDeco = (e: any) => {
@@ -13,10 +13,9 @@ export default function Home({user_props}:any) {
     location.reload();
   }
 
-  console.log(user_props);
   return (
     <div>
-      <h1>Hello {user_props.username}</h1>
+      <h1>Hello {username}</h1>
           <button className="deco-btn" 
           onClick={handleDeco}
                   >Deconnection
